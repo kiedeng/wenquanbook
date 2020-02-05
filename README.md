@@ -1,3 +1,7 @@
+
+
+# 禁止用于商业用途
+
 # 文泉学堂多线程下载
 
 > 主要参考源码：https://github.com/kajweb/wqxuetang_downloader
