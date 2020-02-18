@@ -12,4 +12,4 @@
 
 1. 先登录----https://lib-nuanxin.wqxuetang.com/#/
 2. 直接运行main.py程序
-3. 安装提示复制网址中的json字符串
+3. 按照提示复制网址中的json字符串
