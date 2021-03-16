@@ -9,8 +9,9 @@ import time
 
 # with open("book_info.txt", "r", encoding="utf_8") as f:
 #     data = f.read()
+branch = input("请输入书库名（lib-**** 或 wqbook）：")
 id = input("请输入书籍的id：")
-print("访问："+"https://lib-nuanxin.wqxuetang.com/v1/read/initread?bid="+id)
+print("访问："+"https://{}.wqxuetang.com/v1/read/initread?bid={}".format(branch, id))
 data = input("输入访问网址的json串：")
 with open("book_info.txt", "w", encoding="utf_8") as f:
     f.write(data)
@@ -132,7 +133,7 @@ if __name__ == "__main__":
     down_load()
     print("图片下载完成！！")
     # to_pdf()
-    change_pdf.run(id)
+    change_pdf.run(branch, id)
 
     # f = open("in.txt")
     # line = f.readline()
