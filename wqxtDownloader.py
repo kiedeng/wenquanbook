@@ -22,8 +22,9 @@ class wqxtDownloader():
 	}
 
 	# 构造函数
-	def __init__( self, bid ):
+	def __init__( self, branch, bid ):
 		# 储存输入列表
+		self.branch = branch
 		self.bid 	= bid;
 		self.jwt_key = self.getJwtKey();
 		bookInfo = self.initread();
@@ -46,7 +47,7 @@ class wqxtDownloader():
 
 	# 获得下载页面的基础URL
 	def getBaseUrl( self, page ):
-		return "https://lib-nuanxin.wqxuetang.com/page/img/{}/{}".format( self.bid, str(page) );
+		return "https://{}.wqxuetang.com/page/img/{}/{}".format( self.branch, self.bid, str(page) );
 
 	# 初始化阅读书籍
 	def initread( self ):
@@ -89,7 +90,7 @@ class wqxtDownloader():
 
 		# with open("目录.txt", "r", encoding="utf_8") as f:
 		# 	data = f.read()
-		print("访问：" + "https://lib-nuanxin.wqxuetang.com/v1/book/catatree?bid=" +self.bid)
+		print("访问：" + "https://{}.wqxuetang.com/v1/book/catatree?bid={}".format(self.branch, self.bid))
 		data = input("\n输入访问的json串：")
 		print(data)
 		cataTree = json.loads( data );
@@ -112,7 +113,7 @@ class wqxtDownloader():
 		# data 	= request.read().decode("UTF-8");
 		# with open("解码文件.txt", "r", encoding="utf_8") as f:
 		# 	data = f.read()
-		print("访问："+"https://lib-nuanxin.wqxuetang.com/v1/read/k?bid="+self.bid)
+		print("访问："+"https://{}.wqxuetang.com/v1/read/k?bid={}".format(self.branch, self.bid))
 		data = input("输入网站上的json串:")
 
 		kInfo 	= json.loads( data );
@@ -214,9 +215,9 @@ class wqxtDownloader():
 		curl = get_value("urllib");
 		isExists = os.path.exists(path)
 		if not isExists:
-			bid = self.bid;
+			bid = self.bid; branch = self.branch
 			headers = {
-				"referer": "https://lib-nuanxin.wqxuetang.com/read/pdf/{}".format(bid)
+				"referer": "https://{}.wqxuetang.com/read/pdf/{}".format(branch, bid)
 			};
 			requestPer = curl.request.Request(url=url, headers=headers);
 			request = curl.request.urlopen(requestPer, timeout=10);

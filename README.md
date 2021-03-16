@@ -10,6 +10,6 @@
 
 ## 使用说明
 
-1. 先登录----https://lib-nuanxin.wqxuetang.com/#/
+1. 先登录----`https://(分支书库).wqxuetang.com/#/` (确保分支书库拥有图书访问权限；如使用个人书库 `wqbook`，需先购买图书)
 2. 直接运行main.py程序
 3. 按照提示复制网址中的json字符串

@@ -64,9 +64,10 @@ class wqxtPDF():
 		self.addBookMarks();
 		logging.info("【pdf路径】：\n{}".format(  os.path.abspath(filePath) ));
 		time.sleep(0.1)
-		fold = os.getcwd() + "/books/IMG/"+self.bid
-		shutil.rmtree(fold)
-		print("已删除下载的图片。。。")
+		if input("是否删除下载的图片 (y/N):") == "y":
+			fold = os.getcwd() + "/books/IMG/"+self.bid
+			shutil.rmtree(fold)
+			print("已删除下载的图片。。。")
 
 
 
