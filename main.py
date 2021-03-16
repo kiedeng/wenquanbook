@@ -69,7 +69,9 @@ def load_img(count):
         with open(local_path, "wb") as f:
             while 1:
                 try:
-                    content = requests.get(url, timeout=7).content
+                    r = requests.get(url, timeout=7)
+                    r.raise_for_status()  # 检查状态码
+                    content = r.content
                     break
                 except Exception:
                     print("访问出错。。重新访问")
